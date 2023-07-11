@@ -14,4 +14,23 @@ divisores. '''
 def divisores(n):
     return [i for i in range(1, n + 1) if n % i == 0]
 print(divisores(12))
-#return[ ] entre corchetes porque va a devolver una lista. El bucle for recorrerá range empezando por el 1 y terminando en 12+1, osea en 13 siempre y cuando el resto de 12 dividido entre i (entiendo que i es el resultado del propio bucle?) sea = 0, es decir se pueda dividir entre él mismo. 1ra vuelta -> 12 / 1 = 12 -> OK. 2a vuelta -> 12/2= 6 -> OK. 3a vuelta -> 12/3 = 4 ->OK. 4a vuelta -> 12/4 = 3 ->OK. 5a vuelta -> 12/5 = 2,4 -> NO OK, por tanto False, no cuenta. 6a vuelta-> 12/6= 2-> OK. 7a vuelta-> 12/7=1,71... ->NO OK(cndicion:False). 8a vuelta -> 12/8 = 1,5 (NO OK, False) ... 12a vuelta-> 12/12=1 (ok) y 13a vuelta->12/13=0,92... (False). Aquí termina el range, el último valido fue el nº12.
+# return[ ] entre corchetes porque va a devolver una lista. El bucle for recorrerá range empezando por el 1 y terminando en 12+1, osea en 13 siempre y cuando el resto de 12 dividido entre i (entiendo que i es el resultado del propio bucle?) sea = 0, es decir se pueda dividir entre él mismo. 1ra vuelta -> 12 / 1 = 12 -> OK. 2a vuelta -> 12/2= 6 -> OK. 3a vuelta -> 12/3 = 4 ->OK. 4a vuelta -> 12/4 = 3 ->OK. 5a vuelta -> 12/5 = 2,4 -> NO OK, por tanto False, no cuenta. 6a vuelta-> 12/6= 2-> OK. 7a vuelta-> 12/7=1,71... ->NO OK(cndicion:False). 8a vuelta -> 12/8 = 1,5 (NO OK, False) ... 12a vuelta-> 12/12=1 (ok) y 13a vuelta->12/13=0,92... (False). Aquí termina el range, el último valido fue el nº12.
+
+'''3. Ejercicio: Define una función que tome una lista y retorne una nueva lista con
+los elementos únicos de la lista original.'''
+def nuevaLista(lista1):
+    return list(set(lista1))
+print(nuevaLista(['Carol', 'Laura', 'Pilar', 'Sergio', 'Laura', 'Pilar']))
+
+# list() es una función que crea una lista. set() es una función que crea una colección de elementos sin orden concreto y sin duplicados. Sabiendo esto: devolvemos una lista que contiene los elementos que nosotros definamos en el argumento "lista1". Hemos definido esos elementos al final, cuando llamamos a la función. Set() se encarga de eliminar los duplicados.
+
+'''4. Ejercicio: Define una función que tome un número y retorne la suma de sus
+dígitos.'''
+def suma_digitos(n):
+    return sum(int(digito) for digito in str(n))
+print(suma_digitos(123))
+
+# Defino una función que tomará el número 123. El resultado final que queremos es una suma, por tanto queremos que nos devuelva el resultado de lo que de la función sum(). Esta sum() tiene un bucle llamado digito que recorrerá el valor de n PERO transformado en string. No lo recorre y luego lo transforma en string, cuando lo recorre ya es string. Entonces: 1a vuelta ->resultado es "1", como ya tenemos el resultado de digito, se activa la función int() que en este caso coge el valor de digito y lo transforma en 1. De "1" a 1. 2a vuelta-> resultado de digito es "2" y resultado de int(digito) es 2. 3a vuelta-> resultado de digito es "3" y resultado de int(digito) es 3. No hay más vueltas porque no hay más números. Así pues sumamos los 3 resultados -> 1+2+3 = 6
+
+# Duda: porque str() transforma "1" "2" "3" por separado y no "123", es por el bucle for??
+
