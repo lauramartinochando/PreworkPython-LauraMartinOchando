@@ -34,3 +34,11 @@ print(suma_digitos(123))
 
 # Duda: porque str() transforma "1" "2" "3" por separado y no "123", es por el bucle for??
 
+'''5. Ejercicio: Define una función que tome una cadena y cuente el número de
+vocales en la cadena.'''
+def contar_vocales(cadena):
+    return sum(1 for letra in cadena if letra.lower() in 'aeiou')
+print(contar_vocales('Hola Mundo'))
+#(parecido al ejer 4?) el argumento cadena es "Hola Mundo". lower() devuelve texto en minúsculas. .lower() anexado a un objeto transforma en minúsculas sus letras/string.
+
+#Dudas: Creo que lo que dice el bucle es: recorre la cadena si la cadena tiene alguna de las letras 'aeiou' y súmalas. Pero no entiendo por qué lower() no transforma todas las letras en minus. Ni entiendo el 1 delante del for, ni el "in" después del if.
