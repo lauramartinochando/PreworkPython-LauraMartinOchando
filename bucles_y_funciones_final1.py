@@ -32,13 +32,36 @@ print(suma_digitos(123))
 
 # Defino una función que tomará el número 123. El resultado final que queremos es una suma, por tanto queremos que nos devuelva el resultado de lo que de la función sum(). Esta sum() tiene un bucle llamado digito que recorrerá el valor de n PERO transformado en string. No lo recorre y luego lo transforma en string, cuando lo recorre ya es string. Entonces: 1a vuelta ->resultado es "1", como ya tenemos el resultado de digito, se activa la función int() que en este caso coge el valor de digito y lo transforma en 1. De "1" a 1. 2a vuelta-> resultado de digito es "2" y resultado de int(digito) es 2. 3a vuelta-> resultado de digito es "3" y resultado de int(digito) es 3. No hay más vueltas porque no hay más números. Así pues sumamos los 3 resultados -> 1+2+3 = 6
 
-# Duda: porque str() transforma "1" "2" "3" por separado y no "123", es por el bucle for??
+# Duda: porque str() transforma "1" "2" "3" por separado y no "123", es por el bucle for?? -> lo pregunté en la clase y es porque está actuando sobre una lista. sum() es una funcion que va ligado a listas, por lo tanto aqui se asume que es una lista aunque no esté entre [] (creo que se refería a eso)
 
-'''5. Ejercicio: Define una función que tome una cadena y cuente el número de
-vocales en la cadena.'''
+'''5. Ejercicio: Define una función que tome una cadena y cuente el número de vocales en la cadena.'''
 def contar_vocales(cadena):
     return sum(1 for letra in cadena if letra.lower() in 'aeiou')
 print(contar_vocales('Hola Mundo'))
 #(parecido al ejer 4?) el argumento cadena es "Hola Mundo". lower() devuelve texto en minúsculas. .lower() anexado a un objeto transforma en minúsculas sus letras/string.
 
 #Dudas: Creo que lo que dice el bucle es: recorre la cadena si la cadena tiene alguna de las letras 'aeiou' y súmalas. Pero no entiendo por qué lower() no transforma todas las letras en minus. Ni entiendo el 1 delante del for, ni el "in" después del if.
+
+'''6. Ejercicio: Define una función que tome una lista y un número n, y retorne los
+primeros n elementos de la lista. '''
+def elementos(list, n):
+    return list[:n]
+print(elementos([1,2,3,4,5,6],3))
+
+# :n es un tipo de operacion de corte (slicing) que se aplica a secuencias -> invierte el orden de los elementos (consultar apuntes).
+cadena = "hola"
+cadena_invertida = cadena[::-1]
+print(cadena_invertida)
+#Dudas: cómo sería para sacar los 3 últimos? no me sale poniendo dos :: ni -3 (en el ejemplo "hola" de arriba sí sale)
+
+''' 7. Ejercicio: Define una función que tome una cadena y retorne la cantidad de
+letras mayúsculas y minúsculas en la cadena. '''
+def fcadena(cadena):
+    mayusculas = sum(1 for letra in cadena if letra.isupper())
+    minusculas = sum(1 for letra in cadena if letra.islower())
+    return mayusculas, minusculas
+print(fcadena("Me llamo Laura"))
+
+# islower() function checkea y devuelve True si todos los caracteres son minúsculas. En el ejercicio, for recorre los elementos en cadena ("Me llamo Laura") y nos devuelve el resultdo si las letras son mayus/minus, pero además como está dentro de la función sum(), lo que nos devolverá es la suma de ese resultado, es decir la suma de los caracteres minus/mayus
+
+# Duda: sigo sin entender el 1 delante del for
