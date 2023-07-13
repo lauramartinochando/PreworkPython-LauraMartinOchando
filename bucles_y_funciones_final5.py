@@ -34,6 +34,8 @@ def primeros_n_primos(n):
     return primos
 print(primeros_n_primos(5))
 
+# Dudas: no sé cómo se hace la función "es_primo" que es también el ejercicio 35.
+
 '''32. Ejercicio: Define una función que reciba una cadena y retorne la misma cadena
 pero con las palabras en orden inverso.'''
 def invertir_palabras(cadena):
@@ -48,6 +50,11 @@ ordenada basada en el último elemento de cada tupla.
 def ordenar_por_ultimo_elemento(tuplas):
     return sorted(tuplas, key=lambda x: x[-1])
 print(ordenar_por_ultimo_elemento([(1, 2), (3, 1), (4, 5)]))
+
+# (A tuple is a collection which is ordered and unchangeable). Las tuplas se representan entre paréntesis ().
+# la función sorted() puede contener 3 parámetros. El primero y obligatorio es indicar qué elemento vamos a ordenar, aquí es "tuplas". El segundo es la key, que indicará el orden. Para este orden hemos usado la función lambda, que toma un argumento (x) y una expresión (x[-1]).
+
+#Dudas: no entiendo la x en el lambda
 
 
 '''34. Ejercicio: Define una función que reciba una cadena y retorne la cantidad de
@@ -73,3 +80,8 @@ def es_primo(num):
             return False
     return True
 print(es_primo(17))
+
+# Si el num (17) es menor que 2 -> devuelve False (los numeros primos solo pueden ser mayores que 1). Bucle: recorre el range empezando por el número 2. El stop es el número integro de "num" exponenciado a 0.5 (17**0,5) = 4 Y +1 = 5. El step por defecto es de 1 en 1 (por lo que en la siguiente vuelta empezaría por 3)
+#Este bucle se retornará False si se cumple la sig. condición: si el resto de "num"(17) / i (osea el resultado del bucle) == 0. 
+
+#Dudas: aquí no entiendo el start point del range para qué sirve si ya hemos indicado que los número menores a 2 no pasan más allá y no veo cómo usar el 2 en la operación si estamos llamando al "num"
